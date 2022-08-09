@@ -105,3 +105,27 @@ router.get("/films/:filmId", function(req, res){
 
 module.exports = router;
 // adding this comment for no reason
+
+
+
+router.get('/sol1', function(req ,res){
+    const array = [1,2,3,5,6,7];
+    const n =array.length + 1;
+    const sum = array.reduce((result,num) =>{ return result + num});
+    const missingNumber = n*(n+1)/2 - sum ;
+    console.log(missingNumber);
+    return res.send({ data : missingNumber });
+
+});
+
+router.get('/sol2', function(req ,res){
+    const array = [33, 34, 35, 37, 38];
+    const n =array.length + 1;
+    const firstNum = array[0];
+    const lastNum = array[array.length -1];
+    const sum = array.reduce((result,num) =>{ return result + num});
+    const missingNumber = n*(firstNum + lastNum)/2 - sum ;
+    console.log(missingNumber);
+    return res.send({ data : missingNumber });
+
+});
