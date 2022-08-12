@@ -121,7 +121,53 @@ let players =
        res.send(  { data: players , status: true }  )
        }
    })
+
   
+  let persons = [
+    {
+        name : "PK",
+        age : 10,
+        votingStatus : false
+    },
+
+    {
+        name : "AK",
+        age : 20,
+        votingStatus : false
+    },
+
+    {
+        name :  "AA",
+        age : 70,
+        votingStatus :false
+    },
+
+    {
+        name :  "SC",
+        age : 5,
+        votingStatus : false
+    },
+
+    {
+        name :  "HO",
+        age : 40,
+        votingStatus : false
+    }
+ ];
+router.post('/persons', function(req,res){
+const ageQuery = req.query.age;
+const result = persons.filter(obj => obj.age > ageQuery);
+const eligibleVoters = []
+for(let i=0; i< result.length; i++){
+    person = result[i];
+    person.votingStatus = true;
+    eligibleVoters.push(person)
+}
+
+res.send(eligibleVoters);
+
+});
+
 module.exports = router;
 
 
