@@ -15,7 +15,6 @@ mongoose.connect("mongodb+srv://nirmaljasval:8o1g7W6bqoshvXoN@cluster0.cv9nolo.m
 .catch ( err => console.log(err) )
 
 
-
 app.use("/", route)
 
 app.listen(process.env.PORT || 3000, function () {

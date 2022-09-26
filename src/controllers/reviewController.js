@@ -137,11 +137,11 @@ const deletedReview = async function (req, res) {
     if (bookData.isDeleted == true) return res.status(404).send({ status: false, message: "Review already Deleted :( " });
     //----------------------Validation Ends--------------------------------------------------------//
 
-    let isReviewIdPresent = await reviewModel.findOne({ _id: reviewId, isDeleted: false });
+    // let isReviewIdPresent = await reviewModel.findOne({ _id: reviewId, isDeleted: false });
 
-    if (isReviewIdPresent == null) {
-      return res.status(404).send({ status: false, msg: "Review already deleted" });
-    }
+    // if (isReviewIdPresent == null) {
+    //   return res.status(404).send({ status: false, msg: "Review already deleted" });
+    // }
 
     const isBookIdPresent = await bookModel.findOneAndUpdate(
       {
@@ -155,9 +155,6 @@ const deletedReview = async function (req, res) {
       }
     );
 
-    if (isBookIdPresent == null) {
-      return res.status(404).send({ status: false, message: "No book is found" });
-    }
 
     const date = new Date();
 
