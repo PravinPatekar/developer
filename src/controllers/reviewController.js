@@ -156,7 +156,6 @@ const deletedReview = async function (req, res) {
       }
     );
 
-
     const date = new Date();
 
     let deleteReview = await reviewModel.findByIdAndUpdate(
